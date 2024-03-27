@@ -2,7 +2,6 @@ import pdfkit
 import qrcode
 import os
 
-from django.utils.timezone import localtime
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 from rest_framework.views import APIView
