@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чек на покупку</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .receipt-container { max-width: 300px; margin: auto; }
+        .receipt-item { margin-bottom: 10px; }
+        .item-name { font-weight: bold; }
+        .receipt-summary { margin-top: 20px; }
+        .creation-time { margin-top: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="receipt-container">
+        <h2>Чек на покупку</h2>
+        {% for item in items %}
+        <div class="receipt-item">
+            <span class="item-name">{{ item.title }}</span><br>
+            Кол-во: {{ item.quantity }}, Сумма: {{ item.total_price }} руб.<br>
+        </div>
+        {% endfor %}
+        <div class="receipt-summary">
+            Итого: {{ total }} руб.
+        </div>
+        <div class="creation-time">
+            Время создания чека: {{ created_at }}
+        </div>
+    </div>
+</body>
+</html>
