@@ -48,7 +48,7 @@ class CashMachineAPIView(APIView):
         html = render_to_string('receipt_template.html', context)
         pdf = pdfkit.from_string(html, False)
 
-        file_name = f'receipt_{localtime().strftime("%Y%m%d%H%M%S")}.pdf'
+        file_name = f'receipt_{time_now.strftime("%Y%m%d%H%M%S")}.pdf'
         file_path = os.path.join(settings.MEDIA_ROOT, file_name)
         with open(file_path, 'wb') as f:
             f.write(pdf)
